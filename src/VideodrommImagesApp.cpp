@@ -45,7 +45,7 @@ private:
 
 	VDTextureList				mTexs;
 	fs::path					mTexturesFilepath;
-	int							i, x;
+	int							i, x, texIndex;
 };
 
 VideodrommImagesApp::VideodrommImagesApp()
@@ -59,10 +59,20 @@ VideodrommImagesApp::VideodrommImagesApp()
 	// Animation
 	mVDAnimation = VDAnimation::create(mVDSettings);
 	// initialize 
+	texIndex = 0;
 	mTexturesFilepath = getAssetPath("") / "textures.xml";
 	if (fs::exists(mTexturesFilepath)) {
 		// load textures from file if one exists
 		mTexs = VDTexture::readSettings(mVDAnimation, loadFile(mTexturesFilepath));
+		i = 0;
+		for (auto tex : mTexs)
+		{
+			if (tex->getType() == VDTexture::SEQUENCE) {
+				texIndex = i;
+				mTexs[texIndex]->setSpeed(0.02f);
+			}
+			i++;
+		}
 	}
 	else {
 		// otherwise create a texture from scratch
@@ -123,20 +133,12 @@ void VideodrommImagesApp::fileDrop(FileDropEvent event)
 }
 void VideodrommImagesApp::mouseDrag(MouseEvent event)
 {
-	for (auto tex : mTexs)
-	{
-		tex->setXRight(event.getX());
-		tex->setYBottom(event.getY());
-	}
+	mTexs[texIndex]->setSpeed((float)event.getX() / (float)getWindowWidth() / 10.0f);
 }
 
 void VideodrommImagesApp::mouseDown(MouseEvent event)
 {
-	for (auto tex : mTexs)
-	{
-		tex->setXLeft(event.getX());
-		tex->setYTop(event.getY());
-	}	
+		
 }
 
 void VideodrommImagesApp::mouseUp(MouseEvent event)
@@ -151,6 +153,9 @@ void VideodrommImagesApp::update()
 void VideodrommImagesApp::draw()
 {
 	gl::clear(Color(0, 0, 0));
+	gl::draw(mTexs[texIndex]->getTexture(), getWindowBounds());
+
+	mSpoutOut.sendViewport();
 	i = 0;
 	for (auto tex : mTexs)
 	{
@@ -158,8 +163,6 @@ void VideodrommImagesApp::draw()
 		gl::draw(tex->getTexture(), Rectf(0 + x, 0, 128 + x, 128));
 		i++;
 	}
-
-	mSpoutOut.sendViewport();
 }
 
 void prepareSettings(VideodrommImagesApp::Settings *settings)
