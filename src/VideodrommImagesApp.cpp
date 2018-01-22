@@ -27,6 +27,7 @@ public:
 	void mouseDrag(MouseEvent event) override;
 	void mouseDown(MouseEvent event) override;
 	void mouseUp(MouseEvent event) override;
+	void keyDown(KeyEvent event) override;
 	void update() override;
 	void draw() override;
 
@@ -151,7 +152,25 @@ void VideodrommImagesApp::mouseUp(MouseEvent event)
 {
 	
 }
-
+void VideodrommImagesApp::keyDown(KeyEvent event)
+{
+	if (!mVDSession->handleKeyDown(event)) {
+		switch (event.getCode()) {
+		case KeyEvent::KEY_KP_PLUS:
+			texIndex++;
+			if (texIndex > mTexs.size() - 1) texIndex = 0;
+			break;
+		case KeyEvent::KEY_KP_MINUS:
+			texIndex--;
+			if (texIndex < 0) texIndex = mTexs.size() - 1;
+			break;
+		case KeyEvent::KEY_ESCAPE:
+			// quit the application
+			quit();
+			break;
+		}
+	}
+}
 void VideodrommImagesApp::update()
 {
 }
