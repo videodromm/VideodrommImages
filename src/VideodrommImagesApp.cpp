@@ -5,7 +5,6 @@
 #include "cinder/CameraUi.h"
 #include "cinder/Camera.h"
 
-#include "CinderNDISender.h"
 #include "CiSpoutOut.h"
 
 // Settings
@@ -33,9 +32,6 @@ public:
 
 	void						fileDrop(FileDropEvent event) override;
 private:
-	// NDI
-	CinderNDISender				mSender;
-	ci::SurfaceRef 				mSurface;
 	// Spout
 	SpoutOut					mSpoutOut;
 	// Settings
@@ -53,8 +49,7 @@ private:
 };
 
 VideodrommImagesApp::VideodrommImagesApp()
-	: mSender("VideodrommTextures")
-	, mSpoutOut("vdTextures", app::getWindowSize())
+	: mSpoutOut("vdTextures", app::getWindowSize())
 {
 	// Settings
 	mVDSettings = VDSettings::create();
@@ -82,8 +77,6 @@ VideodrommImagesApp::VideodrommImagesApp()
 		// otherwise create a texture from scratch
 		mTexs.push_back(TextureAudio::create(mVDAnimation));
 	}
-	// NDI surface
-	mSurface = ci::Surface::create(getWindowWidth(), getWindowHeight(), true, SurfaceChannelOrder::BGRA);
 
 }
 void VideodrommImagesApp::fileDrop(FileDropEvent event)
@@ -181,11 +174,7 @@ void VideodrommImagesApp::draw()
 	gl::draw(mTexs[texIndex]->getTexture(), getWindowBounds());
 
 	mSpoutOut.sendViewport();
-	mSurface = Surface::create((mTexs[texIndex]->getTexture()->createSource()));
-	long long timecode = app::getElapsedFrames();
-	XmlTree msg{ "ci_meta", "Textures" };
-	mSender.sendMetadata(msg, timecode);
-	mSender.sendSurface(*mSurface, timecode);
+	
 	i = 0;
 	for (auto tex : mTexs)
 	{

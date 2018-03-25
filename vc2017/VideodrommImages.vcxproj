@@ -79,7 +79,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\include;"..\..\..\Cinder\include";..\..\..\Cinder\blocks\Cinder-ImGui\lib\imgui;..\..\..\Cinder\blocks\Cinder-ImGui\include;..\..\..\Cinder\blocks\Cinder-MIDI2\include;..\..\..\Cinder\blocks\Cinder-MIDI2\lib;..\..\..\Cinder\blocks\Cinder-MIDI2\src;..\..\..\Cinder\blocks\Cinder-NDI\include;..\..\..\Cinder\blocks\Cinder-NDI\ndisdk\include;..\..\..\Cinder\blocks\Cinder-Spout\include;..\..\..\Cinder\blocks\Cinder-WebSocketPP\src;..\..\..\Cinder\include\asio</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\include;..\..\..\Cinder\include;..\..\..\Cinder\blocks\Cinder-ImGui\lib\imgui;..\..\..\Cinder\blocks\Cinder-ImGui\include;..\..\..\Cinder\blocks\Cinder-MIDI2\include;..\..\..\Cinder\blocks\Cinder-MIDI2\lib;..\..\..\Cinder\blocks\Cinder-MIDI2\src;..\..\..\Cinder\blocks\Cinder-Spout\include;..\..\..\Cinder\blocks\Cinder-WebSocketPP\src;..\..\..\Cinder\include\asio</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_WIN32_WINNT=0x0601;_WINDOWS;NOMINMAX;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -93,7 +93,7 @@
       <AdditionalIncludeDirectories>"..\..\..\Cinder\include";..\include</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>cinder.lib;OpenGL32.lib;%(AdditionalDependencies);winmm.lib;..\..\..\Cinder\blocks\Cinder-NDI\ndisdk\lib\$(PlatformTarget)\Processing.NDI.Lib.x64.lib;..\..\..\Cinder\blocks\Cinder-Spout\lib\Spout64.lib</AdditionalDependencies>
+      <AdditionalDependencies>cinder.lib;OpenGL32.lib;%(AdditionalDependencies);winmm.lib;..\..\..\Cinder\blocks\Cinder-Spout\lib\Spout.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>"..\..\..\Cinder\lib\msw\$(PlatformTarget)";"..\..\..\Cinder\lib\msw\$(PlatformTarget)\$(Configuration)\$(PlatformToolset)";..\..\..\Cinder\blocks\Cinder-WebSocketPP\lib\msw</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
@@ -103,8 +103,7 @@
       <IgnoreSpecificDefaultLibraries>LIBCMT;LIBCPMT</IgnoreSpecificDefaultLibraries>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /y "..\..\..\Cinder\blocks\Cinder-NDI\ndisdk\bin\$(PlatformTarget)\Processing.NDI.Lib.x64.dll" "$(OutDir)"
-xcopy /y "..\..\..\Cinder\blocks\Cinder-Spout\lib\Spout64.dll" "$(OutDir)"Spout.dll
+      <Command>xcopy /y "..\..\..\Cinder\blocks\Cinder-Spout\lib\Spout.dll" "$(OutDir)"
 xcopy /y "..\..\..\Cinder\blocks\Cinder-Spout\lib\SpoutPanel.exe" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -124,7 +123,7 @@
       <AdditionalIncludeDirectories>"..\..\..\Cinder\include";..\include</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>cinder.lib;OpenGL32.lib;%(AdditionalDependencies);winmm.lib;..\..\..\Cinder\blocks\Cinder-NDI\ndisdk\lib\$(PlatformTarget)\Processing.NDI.Lib.x64.lib;..\..\..\Cinder\blocks\Cinder-Spout\lib\Spout64.lib</AdditionalDependencies>
+      <AdditionalDependencies>cinder.lib;OpenGL32.lib;%(AdditionalDependencies);winmm.lib;..\..\..\Cinder\blocks\Cinder-NDI\ndisdk\lib\$(PlatformTarget)\Processing.NDI.Lib.x64.lib;..\..\..\Cinder\blocks\Cinder-Spout\lib\Spout.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>"..\..\..\Cinder\lib\msw\$(PlatformTarget)";"..\..\..\Cinder\lib\msw\$(PlatformTarget)\$(Configuration)\$(PlatformToolset)";..\..\..\Cinder\blocks\Cinder-WebSocketPP\lib\msw</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
@@ -140,7 +139,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\include;"..\..\..\Cinder\include";..\..\..\Cinder\blocks\Cinder-ImGui\lib\imgui;..\..\..\Cinder\blocks\Cinder-ImGui\include;..\..\..\Cinder\blocks\Cinder-MIDI2\include;..\..\..\Cinder\blocks\Cinder-MIDI2\lib;..\..\..\Cinder\blocks\Cinder-MIDI2\src;..\..\..\Cinder\blocks\Cinder-NDI\include;..\..\..\Cinder\blocks\Cinder-NDI\ndisdk\include;..\..\..\Cinder\blocks\Cinder-Spout\include;..\..\..\Cinder\blocks\Cinder-WebSocketPP\src;..\..\..\Cinder\include\asio</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\include;..\..\..\Cinder\include;..\..\..\Cinder\blocks\Cinder-ImGui\lib\imgui;..\..\..\Cinder\blocks\Cinder-ImGui\include;..\..\..\Cinder\blocks\Cinder-MIDI2\include;..\..\..\Cinder\blocks\Cinder-MIDI2\lib;..\..\..\Cinder\blocks\Cinder-MIDI2\src;..\..\..\Cinder\blocks\Cinder-Spout\include;..\..\..\Cinder\blocks\Cinder-WebSocketPP\src;..\..\..\Cinder\include\asio</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_WIN32_WINNT=0x0601;_WINDOWS;NOMINMAX;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <PrecompiledHeader />
@@ -155,7 +154,7 @@
       <AdditionalIncludeDirectories>"..\..\..\Cinder\include";..\include</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>cinder.lib;OpenGL32.lib;%(AdditionalDependencies);winmm.lib;..\..\..\Cinder\blocks\Cinder-NDI\ndisdk\lib\$(PlatformTarget)\Processing.NDI.Lib.x64.lib;..\..\..\Cinder\blocks\Cinder-Spout\lib\Spout64.lib</AdditionalDependencies>
+      <AdditionalDependencies>cinder.lib;OpenGL32.lib;%(AdditionalDependencies);winmm.lib;..\..\..\Cinder\blocks\Cinder-Spout\lib\Spout.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>"..\..\..\Cinder\lib\msw\$(PlatformTarget)";"..\..\..\Cinder\lib\msw\$(PlatformTarget)\$(Configuration)\$(PlatformToolset)";..\..\..\Cinder\blocks\Cinder-WebSocketPP\lib\msw</AdditionalLibraryDirectories>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <GenerateMapFile>true</GenerateMapFile>
@@ -167,8 +166,7 @@
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /y "..\..\..\Cinder\blocks\Cinder-NDI\ndisdk\bin\$(PlatformTarget)\Processing.NDI.Lib.x64.dll" "$(OutDir)"
-xcopy /y "..\..\..\Cinder\blocks\Cinder-Spout\lib\Spout64.dll" "$(OutDir)"Spout.dll
+      <Command>xcopy /y "..\..\..\Cinder\blocks\Cinder-Spout\lib\Spout.dll" "$(OutDir)"
 xcopy /y "..\..\..\Cinder\blocks\Cinder-Spout\lib\SpoutPanel.exe" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -189,7 +187,7 @@
       <AdditionalIncludeDirectories>"..\..\..\Cinder\include";..\include</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>cinder.lib;OpenGL32.lib;%(AdditionalDependencies);winmm.lib;..\..\..\Cinder\blocks\Cinder-NDI\ndisdk\lib\$(PlatformTarget)\Processing.NDI.Lib.x64.lib;..\..\..\Cinder\blocks\Cinder-Spout\lib\Spout64.lib</AdditionalDependencies>
+      <AdditionalDependencies>cinder.lib;OpenGL32.lib;%(AdditionalDependencies);winmm.lib;..\..\..\Cinder\blocks\Cinder-NDI\ndisdk\lib\$(PlatformTarget)\Processing.NDI.Lib.x64.lib;..\..\..\Cinder\blocks\Cinder-Spout\lib\Spout.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>"..\..\..\Cinder\lib\msw\$(PlatformTarget)";"..\..\..\Cinder\lib\msw\$(PlatformTarget)\$(Configuration)\$(PlatformToolset)";..\..\..\Cinder\blocks\Cinder-WebSocketPP\lib\msw</AdditionalLibraryDirectories>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <GenerateMapFile>true</GenerateMapFile>
@@ -228,8 +226,6 @@
     <ClInclude Include="..\..\..\Cinder\blocks\Cinder-MIDI2\include\MidiOut.h" />
     <ClInclude Include="..\..\..\Cinder\blocks\Cinder-MIDI2\lib\RtError.h" />
     <ClInclude Include="..\..\..\Cinder\blocks\Cinder-MIDI2\lib\RtMidi.h" />
-    <ClInclude Include="..\..\..\Cinder\blocks\Cinder-NDI\include\CinderNDIReceiver.h" />
-    <ClInclude Include="..\..\..\Cinder\blocks\Cinder-NDI\include\CinderNDISender.h" />
     <ClInclude Include="..\..\..\Cinder\blocks\Cinder-WebSocketPP\src\WebSocketClient.h" />
     <ClInclude Include="..\..\..\Cinder\blocks\Cinder-WebSocketPP\src\WebSocketConnection.h" />
     <ClInclude Include="..\..\..\Cinder\blocks\Cinder-WebSocketPP\src\WebSocketServer.h" />
@@ -269,8 +265,6 @@
     <ClCompile Include="..\..\..\Cinder\blocks\Cinder-MIDI2\src\MidiMessage.cpp" />
     <ClCompile Include="..\..\..\Cinder\blocks\Cinder-MIDI2\src\MidiOut.cpp" />
     <ClCompile Include="..\..\..\Cinder\blocks\Cinder-MIDI2\lib\RtMidi.cpp" />
-    <ClCompile Include="..\..\..\Cinder\blocks\Cinder-NDI\src\CinderNDIReceiver.cpp" />
-    <ClCompile Include="..\..\..\Cinder\blocks\Cinder-NDI\src\CinderNDISender.cpp" />
     <ClCompile Include="..\..\..\Cinder\blocks\Cinder-WebSocketPP\src\WebSocketClient.cpp" />
     <ClCompile Include="..\..\..\Cinder\blocks\Cinder-WebSocketPP\src\WebSocketConnection.cpp" />
     <ClCompile Include="..\..\..\Cinder\blocks\Cinder-WebSocketPP\src\WebSocketServer.cpp" />

@@ -42,15 +42,6 @@
     <Filter Include="Blocks\Midi2\src">
       <UniqueIdentifier>{301F5C0C-3F4D-45EA-BB92-9D51C922409A}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Blocks\Cinder-NDI">
-      <UniqueIdentifier>{A3BDA529-4CBA-42E4-BAC1-4CFEFDCD425E}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Blocks\Cinder-NDI\src">
-      <UniqueIdentifier>{748E247B-E93B-40D6-8282-E35F707EADB2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Blocks\Cinder-NDI\include">
-      <UniqueIdentifier>{CBB0CB6C-0F7E-458A-B281-5F70AD36CD40}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Blocks\Cinder-WebSocketPP">
       <UniqueIdentifier>{BC82E9F2-78C8-4E43-982B-806E6F278C6F}</UniqueIdentifier>
     </Filter>
@@ -140,18 +131,6 @@
     <ClCompile Include="..\..\..\Cinder\blocks\Cinder-MIDI2\lib\RtMidi.cpp">
       <Filter>Blocks\Midi2\lib</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Cinder\blocks\Cinder-NDI\src\CinderNDIReceiver.cpp">
-      <Filter>Blocks\Cinder-NDI\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Cinder\blocks\Cinder-NDI\src\CinderNDISender.cpp">
-      <Filter>Blocks\Cinder-NDI\src</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\..\Cinder\blocks\Cinder-NDI\include\CinderNDIReceiver.h">
-      <Filter>Blocks\Cinder-NDI\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\Cinder\blocks\Cinder-NDI\include\CinderNDISender.h">
-      <Filter>Blocks\Cinder-NDI\include</Filter>
-    </ClInclude>
     <ClCompile Include="..\..\..\Cinder\blocks\Cinder-WebSocketPP\src\WebSocketClient.cpp">
       <Filter>Blocks\Cinder-WebSocketPP\src</Filter>
     </ClCompile>
